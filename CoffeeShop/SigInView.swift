@@ -20,9 +20,8 @@ final class SignInViewModel: ObservableObject{
         
         Task {
             do {
-                let returnedResults = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+                try await AuthenticationManager.shared.signInUser(email: email, password: password)
                 print("KKK Success")
-                print(returnedResults)
             } catch {
                 print("KKK Error  \(error)")
             }
@@ -34,6 +33,8 @@ final class SignInViewModel: ObservableObject{
 struct SigInView: View {
     
     @StateObject private var viewModel = SignInViewModel()
+    @Environment(\.presentationMode) var presentSignInView
+    @Binding var isUserLoggedIn: Bool
     
     var body: some View {
         NavigationView {
@@ -66,6 +67,8 @@ struct SigInView: View {
                 Button(action: {
                     // Handle sign-in logic
                     viewModel.signInWithEmail()
+                    isUserLoggedIn = AuthenticationManager.shared.getCurrentUser() != nil
+                    presentSignInView.wrappedValue.dismiss()
                     print("Sign In button tapped")
                 }) {
                     Text("Sign In")
@@ -150,5 +153,5 @@ struct SigInView: View {
 }
 
 #Preview {
-    SigInView()
+    SigInView(isUserLoggedIn: .constant(false))
 }

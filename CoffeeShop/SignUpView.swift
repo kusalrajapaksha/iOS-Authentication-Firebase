@@ -21,9 +21,9 @@ final class SignUpViewModel: ObservableObject{
         
         Task {
             do {
-                let returnedResults = try await AuthenticationManager.shared.createUser(email: email, password: password)
+                try await AuthenticationManager.shared.createUser(email: email, password: password)
                 print("KKK Sign up new user is success")
-                print(returnedResults)
+               
             } catch {
                 print("KKK Sign up new user is failed error  \(error)")
             }
@@ -133,11 +133,11 @@ struct SignUpView: View {
 
                         Spacer()
 
-                        NavigationLink(destination: SigInView()) {
-                            Text("Already have an account? Sign In")
-                                .foregroundColor(.green)
-                                .padding(.bottom)
-                        }
+//                        NavigationLink(destination: SigInView()) {
+//                            Text("Already have an account? Sign In")
+//                                .foregroundColor(.green)
+//                                .padding(.bottom)
+//                        }
                     }
                     .padding()
                     .navigationBarTitle("Create Account", displayMode: .inline)

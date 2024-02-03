@@ -14,17 +14,13 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             NavigationStack{
-                UserProfileView(showSignInView: $showSignInView)
+                UserProfileView()
             }
             
         }
-        .onAppear(perform: {
-            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.showSignInView = authUser == nil
-        })
         .fullScreenCover(isPresented: $showSignInView, content: {
             NavigationStack{
-                SigInView()
+//                SigInView()
             }
         })
     }

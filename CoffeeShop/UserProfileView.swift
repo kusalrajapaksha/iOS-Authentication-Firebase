@@ -18,29 +18,54 @@ final class UserProfileViewModel: ObservableObject{
 struct UserProfileView: View {
     
     @StateObject private var viewModel = UserProfileViewModel()
-    @Binding var showSignInView: Bool
+    @State var isUserLoggedIn: Bool = false
     
     var body: some View {
         ZStack{
-            Button(action: {
-                Task{
-                    do {
-                        try viewModel.signOut()
-                        showSignInView = true
-                    } catch {
-                        print(error)
+            
+            VStack{
+                Text(isUserLoggedIn ? "Hello this is your profile" : "Please log in to your account")
+                
+                if isUserLoggedIn{
+                    Button(action: {
+                        Task{
+                            do {
+                                try viewModel.signOut()
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }, label: {
+                        Text("Log out")
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.red)
+                            .cornerRadius(10)
+                    })
+                }else{
+                    NavigationLink(destination: SigInView( isUserLoggedIn: $isUserLoggedIn)){
+                        Text("Sign in")
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.red)
+                            .cornerRadius(10)
                     }
+                
                 }
-            }, label: {
-                Text("Log out")
-            })
+            }
+            
         }
         .navigationTitle("Profile")
+        .task {
+            let currentUser = AuthenticationManager.shared.getCurrentUser()
+            print("KKK current user: \(String(describing: currentUser))")
+            isUserLoggedIn = currentUser != nil
+        }
     }
 }
 
 #Preview {
     NavigationStack{
-        UserProfileView(showSignInView: .constant(false))
+        UserProfileView()
     }
 }
