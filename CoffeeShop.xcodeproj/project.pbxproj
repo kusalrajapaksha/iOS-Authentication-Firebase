@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		597EBF562B716649005C3C93 /* LoginRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EBF552B716649005C3C93 /* LoginRegistrationView.swift */; };
+		597EBF582B716A60005C3C93 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EBF572B716A60005C3C93 /* SignInView.swift */; };
 		67AABAE82B218B6A005716FE /* CoffeeShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABAE72B218B6A005716FE /* CoffeeShopApp.swift */; };
 		67AABAEA2B218B6A005716FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABAE92B218B6A005716FE /* ContentView.swift */; };
 		67AABAEC2B218B6C005716FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67AABAEB2B218B6C005716FE /* Assets.xcassets */; };
@@ -16,7 +18,6 @@
 		67AABAFE2B2194B0005716FE /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABAFD2B2194B0005716FE /* AuthenticationManager.swift */; };
 		67AABB032B21A1EE005716FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67AABB022B21A1EE005716FE /* GoogleService-Info.plist */; };
 		67AABB052B21CFCE005716FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABB042B21CFCE005716FE /* Extensions.swift */; };
-		67FB8D122B21E4F2005A47C9 /* SigInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB8D112B21E4F2005A47C9 /* SigInView.swift */; };
 		67FB8D142B22262B005A47C9 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB8D132B22262B005A47C9 /* UserProfileView.swift */; };
 		D2E8B09393574FBBA668828C /* Pods_CoffeeShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47844BF24D01BFDCB70FA594 /* Pods_CoffeeShop.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,8 @@
 		0B3530FCB1297C72BCE17474 /* Pods-CoffeeShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeShop.debug.xcconfig"; path = "Target Support Files/Pods-CoffeeShop/Pods-CoffeeShop.debug.xcconfig"; sourceTree = "<group>"; };
 		23B50F6A654927DFEE393FE5 /* Pods-CoffeeShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeShop.release.xcconfig"; path = "Target Support Files/Pods-CoffeeShop/Pods-CoffeeShop.release.xcconfig"; sourceTree = "<group>"; };
 		47844BF24D01BFDCB70FA594 /* Pods_CoffeeShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		597EBF552B716649005C3C93 /* LoginRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationView.swift; sourceTree = "<group>"; };
+		597EBF572B716A60005C3C93 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		67AABAE42B218B6A005716FE /* CoffeeShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67AABAE72B218B6A005716FE /* CoffeeShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopApp.swift; sourceTree = "<group>"; };
 		67AABAE92B218B6A005716FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		67AABB012B219A9D005716FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67AABB022B21A1EE005716FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67AABB042B21CFCE005716FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		67FB8D112B21E4F2005A47C9 /* SigInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigInView.swift; sourceTree = "<group>"; };
 		67FB8D132B22262B005A47C9 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +85,9 @@
 				67AABAFB2B21922E005716FE /* AppDelegate.swift */,
 				67AABAFD2B2194B0005716FE /* AuthenticationManager.swift */,
 				67AABB042B21CFCE005716FE /* Extensions.swift */,
-				67FB8D112B21E4F2005A47C9 /* SigInView.swift */,
 				67FB8D132B22262B005A47C9 /* UserProfileView.swift */,
+				597EBF552B716649005C3C93 /* LoginRegistrationView.swift */,
+				597EBF572B716A60005C3C93 /* SignInView.swift */,
 			);
 			path = CoffeeShop;
 			sourceTree = "<group>";
@@ -233,10 +236,11 @@
 				67FB8D142B22262B005A47C9 /* UserProfileView.swift in Sources */,
 				67AABAEA2B218B6A005716FE /* ContentView.swift in Sources */,
 				67AABAFE2B2194B0005716FE /* AuthenticationManager.swift in Sources */,
+				597EBF582B716A60005C3C93 /* SignInView.swift in Sources */,
 				67AABAFC2B21922E005716FE /* AppDelegate.swift in Sources */,
 				67AABAE82B218B6A005716FE /* CoffeeShopApp.swift in Sources */,
+				597EBF562B716649005C3C93 /* LoginRegistrationView.swift in Sources */,
 				67AABB052B21CFCE005716FE /* Extensions.swift in Sources */,
-				67FB8D122B21E4F2005A47C9 /* SigInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

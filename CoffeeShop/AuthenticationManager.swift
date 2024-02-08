@@ -59,6 +59,7 @@ final class AuthenticationManager{
     
     func signOut() throws{
         try Auth.auth().signOut()
+        removeCurrentUser()
     }
     
     func storeCurrentUser(authdata: AuthDataResultModel){

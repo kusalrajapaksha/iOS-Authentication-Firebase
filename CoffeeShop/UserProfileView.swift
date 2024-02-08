@@ -10,62 +10,72 @@ import SwiftUI
 @MainActor
 final class UserProfileViewModel: ObservableObject{
     
-    func signOut() throws {
-        try AuthenticationManager.shared.signOut()
+    @Published var currentUser: AuthDataResultModel? = nil
+    @Published var isUserLogedIn: Bool = false
+    
+    init() {
+        currentUser =  AuthenticationManager.shared.getCurrentUser()
+        isUserLogedIn = (currentUser != nil)
     }
+    
+    
+    func signOut() async -> Bool{
+        do {
+            try AuthenticationManager.shared.signOut()
+            return true
+        }catch{
+            print(error)
+            return false
+        }
+    }
+    
+    
 }
 
 struct UserProfileView: View {
     
     @StateObject private var viewModel = UserProfileViewModel()
-    @State var isUserLoggedIn: Bool = false
+    @Environment(\.presentationMode) var showLoginRegisterView
     
     var body: some View {
-        ZStack{
-            
-            VStack{
-                Text(isUserLoggedIn ? "Hello this is your profile" : "Please log in to your account")
-                
-                if isUserLoggedIn{
-                    Button(action: {
-                        Task{
-                            do {
-                                try viewModel.signOut()
-                            } catch {
-                                print(error)
+        NavigationView{
+            ZStack{
+                VStack{
+                    Text(viewModel.isUserLogedIn ? "Hello this is your profile" : "Please log in to your account")
+                    
+                    if !viewModel.isUserLogedIn{
+                        NavigationLink(destination:                     LoginRegistrationView(isUserLoggedIn: $viewModel.isUserLogedIn)){
+                            Text("Login or Register")
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.red)
+                                .cornerRadius(10)
+                        }
+              
+                    }else{
+                        Button("LogOut") {
+                            Task{
+                                let signOutSuccess = await viewModel.signOut()
+                                viewModel.isUserLogedIn = !signOutSuccess
                             }
                         }
-                    }, label: {
-                        Text("Log out")
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.red)
-                            .cornerRadius(10)
-                    })
-                }else{
-                    NavigationLink(destination: SigInView( isUserLoggedIn: $isUserLoggedIn)){
-                        Text("Sign in")
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.red)
-                            .cornerRadius(10)
                     }
-                
+                    
                 }
+                
             }
-            
         }
+        .ignoresSafeArea()
         .navigationTitle("Profile")
-        .task {
-            let currentUser = AuthenticationManager.shared.getCurrentUser()
-            print("KKK current user: \(String(describing: currentUser))")
-            isUserLoggedIn = currentUser != nil
+        .onChange(of: viewModel.isUserLogedIn) { newValue in
+            if newValue == true{
+                showLoginRegisterView.wrappedValue.dismiss()
+            }
         }
+        
     }
 }
 
 #Preview {
-    NavigationStack{
-        UserProfileView()
-    }
+    UserProfileView()
 }

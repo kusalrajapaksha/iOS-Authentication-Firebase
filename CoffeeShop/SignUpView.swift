@@ -12,21 +12,22 @@ final class SignUpViewModel: ObservableObject{
     @Published var email = ""
     @Published var password = ""
     @Published var passwordConfirmation = ""
+
     
-    func signUpWithEmail() {
+    func signUpWithEmail() async -> Bool {
         guard !email.isEmpty, !password.isEmpty, password.elementsEqual(passwordConfirmation) else {
             print("No email or password found")
-            return
+            return false
         }
         
-        Task {
-            do {
-                try await AuthenticationManager.shared.createUser(email: email, password: password)
-                print("KKK Sign up new user is success")
-               
-            } catch {
-                print("KKK Sign up new user is failed error  \(error)")
-            }
+        do {
+            try await AuthenticationManager.shared.createUser(email: email, password: password)
+            print("KKK Sign up new user is success")
+            return true
+           
+        } catch {
+            print("KKK Sign up new user is failed error  \(error)")
+            return false
         }
         
     }
@@ -35,116 +36,105 @@ final class SignUpViewModel: ObservableObject{
 struct SignUpView: View {
    
     @StateObject private var viewModel = SignUpViewModel()
+    @Binding var isUserLoggedIn: Bool
+    @Environment(\.presentationMode) var presentSignInView
+    @Binding var showLoader: Bool
     
     var body: some View {
-        NavigationView {
-                    VStack {
-                        Spacer()
+        ScrollView{
+            VStack {
+                Spacer().frame(height: 40)
 
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.green)
+                TextField("Email", text: $viewModel.email)
+                    .padding(10)
+                    .background(Color(hex: "#D9D9D9"))
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                
+                Spacer().frame(height: 20)
 
-                        Text("Sign Up")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
+                SecureField("Password", text: $viewModel.password)
+                    .padding(10)
+                    .background(Color(hex: "#D9D9D9"))
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                
+                Spacer().frame(height: 20)
 
-                        TextField("Email", text: $viewModel.email)
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.horizontal)
+                SecureField("Confirm Password", text: $viewModel.passwordConfirmation)
+                    .padding(10)
+                    .background(Color(hex: "#D9D9D9"))
+                    .cornerRadius(20)
+                    .padding(.horizontal)
 
-                        SecureField("Password", text: $viewModel.password)
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.horizontal)
-
-                        SecureField("Confirm Password", text: $viewModel.passwordConfirmation)
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .padding(.horizontal)
-
-                        Button(action: {
-                            // Handle sign-up logic
-                            viewModel.signUpWithEmail()
-                            print("Sign Up button tapped")
-                        }) {
-                            Text("Sign Up")
-                                .foregroundColor(.white)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.green)
-                                .cornerRadius(8)
-                                .padding(.horizontal)
+                Button(action: {
+                    // Handle sign-up logic
+                    Task{
+                        showLoader = true
+                        let success = await viewModel.signUpWithEmail()
+                        if success{
+                            print("KKK sign up success")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                isUserLoggedIn = AuthenticationManager.shared.getCurrentUser() != nil
+                                showLoader = false
+                            })
                         }
-                        .padding(.top)
-                        
-                        Divider()
-                        
-                        Button(action: {
-                            // Handle sign-in logic
-                            print("Sign In button tapped")
-                        }) {
-                            HStack{
-                                Image("google")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30)
-                                Text("Continue with Google")
-                                    .foregroundColor(.white)
-                                    .padding()
-                            }
-                            .frame(maxWidth: .infinity)
-                            .background(Color.green.opacity(0.9))
-                            .cornerRadius(30)
-                            .padding(.horizontal)
-                            
-                        }
-                        .padding(.top)
-                        
-                        Button(action: {
-                            // Handle sign-in logic
-                            print("Sign In button tapped")
-                        }) {
-                            HStack{
-                                Image("apple")
-                                    .renderingMode(.template)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(.white)
-                                    .frame(width: 30)
-                                Text("Continue with Apple")
-                                    .foregroundColor(.white)
-                                    .padding()
-                            }
-                            .frame(maxWidth: .infinity)
-                            .background(Color.black.opacity(0.9))
-                            .cornerRadius(30)
-                            .padding(.horizontal)
-                            
-                        }
-                        
-
-                        Spacer()
-
-//                        NavigationLink(destination: SigInView()) {
-//                            Text("Already have an account? Sign In")
-//                                .foregroundColor(.green)
-//                                .padding(.bottom)
-//                        }
+                        showLoader = false
                     }
-                    .padding()
-                    .navigationBarTitle("Create Account", displayMode: .inline)
+                    
+                }) {
+                    Text("Sign Up")
+                        .foregroundColor(Color(hex: "#3F3D3D"))
+                        .padding(10)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(hex: "#FFB800"))
+                        .cornerRadius(20)
+                        .padding(.horizontal)
                 }
+                .padding(.top)
+                
+                Divider().background(.white).padding()
+                
+                Text("or")
+                    .foregroundColor(Color(hex: "#D9D9D9"))
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                
+                Button(action: {
+                    // Handle sign-in logic
+                    print("Sign In button tapped")
+                }) {
+                    HStack{
+                        Image("google")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30)
+                        Text("Register with Google")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(Color.green.opacity(0.9))
+                    .cornerRadius(30)
+                    .padding(.horizontal)
+                    
+                }
+                .padding(.top)
+                
+
+                Spacer()
+
+            }
+            .padding()
+        }
+        
     }
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(isUserLoggedIn: .constant(false), showLoader: .constant(false))
 }
+
+//#Preview {
+//    LoginRegistrationView()
+//}

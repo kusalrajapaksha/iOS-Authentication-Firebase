@@ -8,21 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var showSignInView: Bool = false
-    
+        
     var body: some View {
-        ZStack{
-            NavigationStack{
-                UserProfileView()
-            }
-            
-        }
-        .fullScreenCover(isPresented: $showSignInView, content: {
-            NavigationStack{
-//                SigInView()
-            }
-        })
+        UserProfileView()
     }
 }
 
