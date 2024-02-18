@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		597EBF562B716649005C3C93 /* LoginRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EBF552B716649005C3C93 /* LoginRegistrationView.swift */; };
 		597EBF582B716A60005C3C93 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EBF572B716A60005C3C93 /* SignInView.swift */; };
+		59821E8B2B826F830088176C /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59821E872B826F820088176C /* Rubik-Medium.ttf */; };
+		59821E8C2B826F830088176C /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59821E882B826F820088176C /* Rubik-Regular.ttf */; };
+		59821E8D2B826F830088176C /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59821E892B826F820088176C /* Rubik-SemiBold.ttf */; };
+		59821E8E2B826F830088176C /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59821E8A2B826F830088176C /* Rubik-Bold.ttf */; };
+		59821E902B8270740088176C /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59821E8F2B8270740088176C /* CustomFonts.swift */; };
+		59821E922B8274090088176C /* FavouriteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59821E912B8274090088176C /* FavouriteCardView.swift */; };
 		59BFD1472B7A67E900082E20 /* MainEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD1462B7A67E900082E20 /* MainEntryView.swift */; };
 		59BFD1492B7A6B3F00082E20 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD1482B7A6B3F00082E20 /* MainHomeView.swift */; };
 		59BFD14B2B7A6ED300082E20 /* MainFavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD14A2B7A6ED300082E20 /* MainFavouritesView.swift */; };
@@ -35,6 +41,12 @@
 		47844BF24D01BFDCB70FA594 /* Pods_CoffeeShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		597EBF552B716649005C3C93 /* LoginRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegistrationView.swift; sourceTree = "<group>"; };
 		597EBF572B716A60005C3C93 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		59821E872B826F820088176C /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		59821E882B826F820088176C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		59821E892B826F820088176C /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		59821E8A2B826F830088176C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		59821E8F2B8270740088176C /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		59821E912B8274090088176C /* FavouriteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCardView.swift; sourceTree = "<group>"; };
 		59BFD1462B7A67E900082E20 /* MainEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryView.swift; sourceTree = "<group>"; };
 		59BFD1482B7A6B3F00082E20 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		59BFD14A2B7A6ED300082E20 /* MainFavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFavouritesView.swift; sourceTree = "<group>"; };
@@ -68,6 +80,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59821E862B826F440088176C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				59821E8A2B826F830088176C /* Rubik-Bold.ttf */,
+				59821E872B826F820088176C /* Rubik-Medium.ttf */,
+				59821E882B826F820088176C /* Rubik-Regular.ttf */,
+				59821E892B826F820088176C /* Rubik-SemiBold.ttf */,
+				59821E8F2B8270740088176C /* CustomFonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		59BFD1432B7A678C00082E20 /* Login-Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +122,7 @@
 				59BFD14E2B7A72C500082E20 /* MainPageView.swift */,
 				59BFD1542B7A8AE600082E20 /* MainHomeViewModel.swift */,
 				59BFD1562B7A988800082E20 /* CoffeeCardView.swift */,
+				59821E912B8274090088176C /* FavouriteCardView.swift */,
 			);
 			path = MainHome;
 			sourceTree = "<group>";
@@ -123,6 +148,7 @@
 		67AABAE62B218B6A005716FE /* CoffeeShop */ = {
 			isa = PBXGroup;
 			children = (
+				59821E862B826F440088176C /* Fonts */,
 				59BFD1452B7A67BE00082E20 /* MainHome */,
 				59BFD1442B7A67AF00082E20 /* Utils */,
 				59BFD1432B7A678C00082E20 /* Login-Signup */,
@@ -225,6 +251,10 @@
 				67AABAEF2B218B6C005716FE /* Preview Assets.xcassets in Resources */,
 				67AABAEC2B218B6C005716FE /* Assets.xcassets in Resources */,
 				67AABB032B21A1EE005716FE /* GoogleService-Info.plist in Resources */,
+				59821E8D2B826F830088176C /* Rubik-SemiBold.ttf in Resources */,
+				59821E8E2B826F830088176C /* Rubik-Bold.ttf in Resources */,
+				59821E8C2B826F830088176C /* Rubik-Regular.ttf in Resources */,
+				59821E8B2B826F830088176C /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +317,8 @@
 				67AABAFC2B21922E005716FE /* AppDelegate.swift in Sources */,
 				59BFD14F2B7A72C500082E20 /* MainPageView.swift in Sources */,
 				67AABAE82B218B6A005716FE /* CoffeeShopApp.swift in Sources */,
+				59821E922B8274090088176C /* FavouriteCardView.swift in Sources */,
+				59821E902B8270740088176C /* CustomFonts.swift in Sources */,
 				59BFD1552B7A8AE600082E20 /* MainHomeViewModel.swift in Sources */,
 				597EBF562B716649005C3C93 /* LoginRegistrationView.swift in Sources */,
 				59BFD1572B7A988800082E20 /* CoffeeCardView.swift in Sources */,
