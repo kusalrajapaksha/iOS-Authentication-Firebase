@@ -17,7 +17,7 @@ struct MainFavouritesView: View {
             LinearGradient(colors: [Color(hex: "3E3232"),Color(hex: "503C3C"),Color(hex: "7E6363"),Color(hex: "3E3232")], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             if showFavourites{
                 VStack{
-                    Text("Your Favourites")
+                    Text("Favourites")
                         .foregroundStyle(.white)
                         .font(.custom(CustomFonts.RubikBold, size: 25))
                     Spacer().frame(height: 20)
@@ -56,5 +56,5 @@ struct MainFavouritesView: View {
 }
 
 #Preview {
-    MainEntryView()
+    MainFavouritesView()
 }

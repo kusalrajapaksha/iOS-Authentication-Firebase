@@ -11,6 +11,9 @@ struct CoffeeCardView: View {
     
     var item: CoffeeItem
     
+    @State var isDetailViewPresented: Bool = false
+    @State var showDetailView: Bool = false
+    
     var body: some View {
         ZStack{
             Color(hex: "f6c28b").opacity(0.4)
@@ -57,6 +60,12 @@ struct CoffeeCardView: View {
         .frame(width: 200, height: 260)
         .cornerRadius(16)
         .shadow(radius: 5, x:2, y:2)
+        .onTapGesture {
+            showDetailView.toggle()
+        }
+        .fullScreenCover(isPresented: $showDetailView, content: {
+            CoffeeDetailView(item: item)
+        })
 
     }
 }

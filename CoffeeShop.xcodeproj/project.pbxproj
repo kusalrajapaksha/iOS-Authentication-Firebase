@@ -22,6 +22,8 @@
 		59BFD14F2B7A72C500082E20 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD14E2B7A72C500082E20 /* MainPageView.swift */; };
 		59BFD1552B7A8AE600082E20 /* MainHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD1542B7A8AE600082E20 /* MainHomeViewModel.swift */; };
 		59BFD1572B7A988800082E20 /* CoffeeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BFD1562B7A988800082E20 /* CoffeeCardView.swift */; };
+		59FD89772B85084900A6A679 /* CartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD89762B85084900A6A679 /* CartCardView.swift */; };
+		59FD897A2B85EC4F00A6A679 /* CoffeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD89792B85EC4F00A6A679 /* CoffeeDetailView.swift */; };
 		67AABAE82B218B6A005716FE /* CoffeeShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABAE72B218B6A005716FE /* CoffeeShopApp.swift */; };
 		67AABAEA2B218B6A005716FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AABAE92B218B6A005716FE /* ContentView.swift */; };
 		67AABAEC2B218B6C005716FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67AABAEB2B218B6C005716FE /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		59BFD14E2B7A72C500082E20 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		59BFD1542B7A8AE600082E20 /* MainHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewModel.swift; sourceTree = "<group>"; };
 		59BFD1562B7A988800082E20 /* CoffeeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCardView.swift; sourceTree = "<group>"; };
+		59FD89762B85084900A6A679 /* CartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCardView.swift; sourceTree = "<group>"; };
+		59FD89792B85EC4F00A6A679 /* CoffeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailView.swift; sourceTree = "<group>"; };
 		67AABAE42B218B6A005716FE /* CoffeeShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67AABAE72B218B6A005716FE /* CoffeeShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopApp.swift; sourceTree = "<group>"; };
 		67AABAE92B218B6A005716FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,8 +127,17 @@
 				59BFD1542B7A8AE600082E20 /* MainHomeViewModel.swift */,
 				59BFD1562B7A988800082E20 /* CoffeeCardView.swift */,
 				59821E912B8274090088176C /* FavouriteCardView.swift */,
+				59FD89762B85084900A6A679 /* CartCardView.swift */,
 			);
 			path = MainHome;
+			sourceTree = "<group>";
+		};
+		59FD89782B85EC3400A6A679 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				59FD89792B85EC4F00A6A679 /* CoffeeDetailView.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 		67AABADB2B218B6A005716FE = {
@@ -148,6 +161,7 @@
 		67AABAE62B218B6A005716FE /* CoffeeShop */ = {
 			isa = PBXGroup;
 			children = (
+				59FD89782B85EC3400A6A679 /* DetailsView */,
 				59821E862B826F440088176C /* Fonts */,
 				59BFD1452B7A67BE00082E20 /* MainHome */,
 				59BFD1442B7A67AF00082E20 /* Utils */,
@@ -314,11 +328,13 @@
 				59BFD1492B7A6B3F00082E20 /* MainHomeView.swift in Sources */,
 				67AABAFE2B2194B0005716FE /* AuthenticationManager.swift in Sources */,
 				597EBF582B716A60005C3C93 /* SignInView.swift in Sources */,
+				59FD897A2B85EC4F00A6A679 /* CoffeeDetailView.swift in Sources */,
 				67AABAFC2B21922E005716FE /* AppDelegate.swift in Sources */,
 				59BFD14F2B7A72C500082E20 /* MainPageView.swift in Sources */,
 				67AABAE82B218B6A005716FE /* CoffeeShopApp.swift in Sources */,
 				59821E922B8274090088176C /* FavouriteCardView.swift in Sources */,
 				59821E902B8270740088176C /* CustomFonts.swift in Sources */,
+				59FD89772B85084900A6A679 /* CartCardView.swift in Sources */,
 				59BFD1552B7A8AE600082E20 /* MainHomeViewModel.swift in Sources */,
 				597EBF562B716649005C3C93 /* LoginRegistrationView.swift in Sources */,
 				59BFD1572B7A988800082E20 /* CoffeeCardView.swift in Sources */,

@@ -12,7 +12,6 @@ struct MainEntryView: View {
     
     @State private var selectedTabIndex = 0
     
-    
     var body: some View {
         let firstPageView = MainHomeView()
         let secondPageView = MainFavouritesView()
